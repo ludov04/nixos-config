@@ -75,7 +75,7 @@ let name = "Ludovic Vannoorenberghe";
     signing = {
       format = "ssh"
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-      key = ""
+      key = "SHA256:3JwNznzsYXMnuGGx4NoMPmxSkl29Xlh4nUbeBOMTaR8"
     }
     extraConfig = {
       init.defaultBranch = "main";
