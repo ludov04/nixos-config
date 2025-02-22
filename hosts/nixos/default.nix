@@ -4,10 +4,10 @@ let user = "ludov";
     keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p" ]; in
 {
   imports = [
-    ../../modules/nixos/secrets.nix
     ../../modules/nixos/disk-config.nix
     ../../modules/shared
     agenix.nixosModules.default
+    inputs._1password-shell-plugins.hmModules.default
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -62,6 +62,14 @@ let user = "ludov";
 
     # My shell
     zsh.enable = true;
+
+    _1password-shell-plugins = {
+      # enable 1Password shell plugins for bash, zsh, and fish shell
+      enable = true;
+      # the specified packages as well as 1Password CLI will be
+      # automatically installed and configured to use shell plugins
+      plugins = with pkgs; [ gh awscli2 cachix ];
+    };
   };
 
   services = {

@@ -72,10 +72,15 @@ let name = "Ludovic Vannoorenberghe";
     lfs = {
       enable = true;
     };
+    signing = {
+      format = "ssh"
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+      key = ""
+    }
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "vim";
+	    editor = "code";
         autocrlf = "input";
       };
       commit.gpgsign = true;
