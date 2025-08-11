@@ -54,6 +54,11 @@ with pkgs; [
   unrar
   unzip
   zsh-powerlevel10k
+  oh-my-zsh
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-fast-syntax-highlighting
+  zsh-autocomplete
 
   # Python packages
   python3

@@ -20,6 +20,51 @@ let name = "Ludovic Vannoorenberghe";
           src = lib.cleanSource ./config;
           file = "p10k.zsh";
       }
+      {
+          name = "git";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/git/git.plugin.zsh";
+      }
+      {
+          name = "zsh-autosuggestions";
+          src = pkgs.zsh-autosuggestions;
+          file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+      }
+      {
+          name = "aws";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/aws/aws.plugin.zsh";
+      }
+      {
+          name = "terraform";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/terraform/terraform.plugin.zsh";
+      }
+      {
+          name = "kubectl";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh";
+      }
+      {
+          name = "kubectx";
+          src = pkgs.oh-my-zsh;
+          file = "share/oh-my-zsh/plugins/kubectx/kubectx.plugin.zsh";
+      }
+      {
+          name = "zsh-syntax-highlighting";
+          src = pkgs.zsh-syntax-highlighting;
+          file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+      }
+      {
+          name = "zsh-fast-syntax-highlighting";
+          src = pkgs.zsh-fast-syntax-highlighting;
+          file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+      }
+      {
+          name = "zsh-autocomplete";
+          src = pkgs.zsh-autocomplete;
+          file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
+      }
     ];
     initExtraFirst = ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
@@ -37,15 +82,6 @@ let name = "Ludovic Vannoorenberghe";
 
       # Ripgrep alias
       alias search=rg -p --glob '!node_modules/*'  $@
-
-      # Emacs is my editor
-      export ALTERNATE_EDITOR=""
-      export EDITOR="emacsclient -t"
-      export VISUAL="emacsclient -c -a emacs"
-
-      e() {
-          emacsclient -t "$@"
-      }
 
       # nix shortcuts
       shell() {
