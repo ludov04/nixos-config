@@ -14,13 +14,16 @@ _:
 
   # Utility Tools
   "syncthing"
+  "ghostty"
 
   # Entertainment Tools
   "vlc"
 
   # Productivity Tools
   "raycast"
+  "rectangle"
+  "1password"
 
   # Browsers
-  "google-chrome"
+  "arc"
 ]
