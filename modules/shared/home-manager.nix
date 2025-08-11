@@ -73,10 +73,10 @@ let name = "Ludovic Vannoorenberghe";
       enable = true;
     };
     signing = {
-      format = "ssh"
-      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-      key = "SHA256:3JwNznzsYXMnuGGx4NoMPmxSkl29Xlh4nUbeBOMTaR8"
-    }
+      format = "ssh";
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN/vTzT7hRPxNoVsxMo8TCJbCSSuG13Z3gHApixtRFv3";
+    };
     extraConfig = {
       init.defaultBranch = "main";
       core = {
@@ -210,19 +210,8 @@ let name = "Ludovic Vannoorenberghe";
         "/Users/${user}/.ssh/config_external"
       )
     ];
-    matchBlocks = {
-      "github.com" = {
-        identitiesOnly = true;
-        identityFile = [
-          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-            "/home/${user}/.ssh/id_github"
-          )
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-            "/Users/${user}/.ssh/id_github"
-          )
-        ];
-      };
-    };
+    forwardAgent = true;
+    extraConfig = "IdentityAgent \"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
   };
 
   tmux = {
