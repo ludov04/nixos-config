@@ -6,6 +6,9 @@ shared-packages ++ [
   dockutil
   devbox
   lazygit
+  tailscale
+  podman
 ] ++ (with pkgs-unstable; [
   claude-code
+  _1password-cli
 ])
