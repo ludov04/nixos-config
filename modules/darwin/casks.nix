@@ -2,8 +2,9 @@ _:
 
 [
   # Development Tools
-  "homebrew/cask/docker"
+  "podman-desktop"
   "visual-studio-code"
+  "tailscale"
 
   # Communication Tools
   "discord"
