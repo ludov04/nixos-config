@@ -97,6 +97,8 @@ let name = "Ludovic Vannoorenberghe";
 
       # Always color ls and group directories
       alias ls='ls --color=auto'
+
+      echo "source /Users/${user}/.config/op/plugins.sh" >> ~/.zshrc && source ~/.zshrc
     '';
   };
 
