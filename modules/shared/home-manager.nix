@@ -60,11 +60,11 @@ let name = "Ludovic Vannoorenberghe";
           src = pkgs.zsh-fast-syntax-highlighting;
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
       }
-      {
-          name = "zsh-autocomplete";
-          src = pkgs.zsh-autocomplete;
-          file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      }
+      # {
+      #     name = "zsh-autocomplete";
+      #     src = pkgs.zsh-autocomplete;
+      #     file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
+      # }
     ];
     initExtraFirst = ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
@@ -98,7 +98,11 @@ let name = "Ludovic Vannoorenberghe";
       # Always color ls and group directories
       alias ls='ls --color=auto'
 
-      echo "source /Users/${user}/.config/op/plugins.sh" >> ~/.zshrc && source ~/.zshrc
+      source /Users/${user}/.config/op/plugins.sh
+
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+      [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     '';
   };
 
