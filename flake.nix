@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    aicommit2.url = "github:tak-bro/aicommit2";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
     darwin = {
@@ -104,6 +105,15 @@
                 mutableTaps = false;
                 autoMigrate = true;
               };
+              environment.systemPackages = with nixpkgs.legacyPackages.${system}; [
+                (inputs.aicommit2.packages.${system}.default.overrideAttrs (old: {
+                  pnpmDeps = pnpm.fetchDeps {
+                    inherit (old) pname version src;
+                    fetcherVersion = 1;
+                    hash = "sha256-fY7oIi5JwrykHdqDbzlufUVgzZCEsIipOoCMa+FB3FA=";
+                  };
+                }))
+              ];
             }
             ./hosts/darwin
           ];
