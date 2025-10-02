@@ -122,7 +122,7 @@ let name = "Ludovic Vannoorenberghe";
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "code";
+	      editor = "code --wait";
         autocrlf = "input";
       };
       commit.gpgsign = true;
